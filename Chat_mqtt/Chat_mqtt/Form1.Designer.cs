@@ -96,7 +96,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(57, 29);
             this.button3.TabIndex = 6;
-            this.button3.Text = "OK";
+            this.button3.Text = "NO";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // vScrollBar1
