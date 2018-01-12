@@ -28,138 +28,141 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Bpublish = new System.Windows.Forms.Button();
+            this.Lmessage = new System.Windows.Forms.Label();
+            this.Tmessage = new System.Windows.Forms.TextBox();
+            this.Lnickname = new System.Windows.Forms.Label();
+            this.Tnickname = new System.Windows.Forms.TextBox();
+            this.Bconnect = new System.Windows.Forms.Button();
+            this.Ltopic = new System.Windows.Forms.Label();
+            this.Ttopic = new System.Windows.Forms.TextBox();
+            this.Bdisconnect = new System.Windows.Forms.Button();
+            this.Lchat = new System.Windows.Forms.Label();
+            this.listChat = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // button2
+            // Bpublish
             // 
-            this.button2.Location = new System.Drawing.Point(315, 260);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(67, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Invia";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Bpublish.Location = new System.Drawing.Point(315, 260);
+            this.Bpublish.Margin = new System.Windows.Forms.Padding(2);
+            this.Bpublish.Name = "Bpublish";
+            this.Bpublish.Size = new System.Drawing.Size(67, 23);
+            this.Bpublish.TabIndex = 1;
+            this.Bpublish.Text = "Invia";
+            this.Bpublish.UseVisualStyleBackColor = true;
+            this.Bpublish.Click += new System.EventHandler(this.Bpublish_Click);
             // 
-            // textBox1
+            // Lmessage
             // 
-            this.textBox1.Location = new System.Drawing.Point(465, 25);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(424, 230);
-            this.textBox1.TabIndex = 2;
+            this.Lmessage.AutoSize = true;
+            this.Lmessage.Location = new System.Drawing.Point(8, 94);
+            this.Lmessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lmessage.Name = "Lmessage";
+            this.Lmessage.Size = new System.Drawing.Size(77, 13);
+            this.Lmessage.TabIndex = 3;
+            this.Lmessage.Text = "Your message:";
             // 
-            // label1
+            // Tmessage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 94);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Your message:";
+            this.Tmessage.Location = new System.Drawing.Point(11, 120);
+            this.Tmessage.Margin = new System.Windows.Forms.Padding(2);
+            this.Tmessage.Multiline = true;
+            this.Tmessage.Name = "Tmessage";
+            this.Tmessage.Size = new System.Drawing.Size(371, 132);
+            this.Tmessage.TabIndex = 4;
+            this.Tmessage.TextChanged += new System.EventHandler(this.Tmessage_TextChanged);
             // 
-            // textBox2
+            // Lnickname
             // 
-            this.textBox2.Location = new System.Drawing.Point(11, 120);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(371, 132);
-            this.textBox2.TabIndex = 4;
+            this.Lnickname.AutoSize = true;
+            this.Lnickname.Location = new System.Drawing.Point(8, 6);
+            this.Lnickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lnickname.Name = "Lnickname";
+            this.Lnickname.Size = new System.Drawing.Size(58, 13);
+            this.Lnickname.TabIndex = 5;
+            this.Lnickname.Text = "Nickname:";
             // 
-            // label2
+            // Tnickname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Nickname:";
+            this.Tnickname.Location = new System.Drawing.Point(67, 4);
+            this.Tnickname.Margin = new System.Windows.Forms.Padding(2);
+            this.Tnickname.Multiline = true;
+            this.Tnickname.Name = "Tnickname";
+            this.Tnickname.Size = new System.Drawing.Size(109, 20);
+            this.Tnickname.TabIndex = 7;
+            this.Tnickname.TextChanged += new System.EventHandler(this.Tnickname_TextChanged);
             // 
-            // textBox3
+            // Bconnect
             // 
-            this.textBox3.Location = new System.Drawing.Point(67, 4);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(109, 20);
-            this.textBox3.TabIndex = 7;
+            this.Bconnect.Location = new System.Drawing.Point(202, 19);
+            this.Bconnect.Margin = new System.Windows.Forms.Padding(2);
+            this.Bconnect.Name = "Bconnect";
+            this.Bconnect.Size = new System.Drawing.Size(55, 24);
+            this.Bconnect.TabIndex = 6;
+            this.Bconnect.Text = "Connect";
+            this.Bconnect.UseVisualStyleBackColor = true;
+            this.Bconnect.Click += new System.EventHandler(this.Bconnect_Click);
             // 
-            // button3
+            // Ltopic
             // 
-            this.button3.Location = new System.Drawing.Point(202, 19);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(55, 24);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Connect";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Ltopic.AutoSize = true;
+            this.Ltopic.Location = new System.Drawing.Point(8, 43);
+            this.Ltopic.Name = "Ltopic";
+            this.Ltopic.Size = new System.Drawing.Size(37, 13);
+            this.Ltopic.TabIndex = 8;
+            this.Ltopic.Text = "Topic:";
             // 
-            // label3
+            // Ttopic
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Topic:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.Ttopic.Location = new System.Drawing.Point(67, 40);
+            this.Ttopic.Name = "Ttopic";
+            this.Ttopic.Size = new System.Drawing.Size(109, 20);
+            this.Ttopic.TabIndex = 9;
             // 
-            // textBox4
+            // Bdisconnect
             // 
-            this.textBox4.Location = new System.Drawing.Point(67, 40);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(109, 20);
-            this.textBox4.TabIndex = 9;
+            this.Bdisconnect.Location = new System.Drawing.Point(814, 260);
+            this.Bdisconnect.Name = "Bdisconnect";
+            this.Bdisconnect.Size = new System.Drawing.Size(75, 23);
+            this.Bdisconnect.TabIndex = 10;
+            this.Bdisconnect.Text = "Quit";
+            this.Bdisconnect.UseVisualStyleBackColor = true;
+            this.Bdisconnect.Click += new System.EventHandler(this.Bdisconnect_Click);
             // 
-            // button1
+            // Lchat
             // 
-            this.button1.Location = new System.Drawing.Point(814, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Quit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Lchat.AutoSize = true;
+            this.Lchat.Location = new System.Drawing.Point(465, 5);
+            this.Lchat.Name = "Lchat";
+            this.Lchat.Size = new System.Drawing.Size(32, 13);
+            this.Lchat.TabIndex = 11;
+            this.Lchat.Text = "Chat:";
             // 
-            // label4
+            // listChat
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(465, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Chat:";
+            this.listChat.FormattingEnabled = true;
+            this.listChat.Location = new System.Drawing.Point(468, 27);
+            this.listChat.Name = "listChat";
+            this.listChat.Size = new System.Drawing.Size(420, 225);
+            this.listChat.TabIndex = 12;
+            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 309);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listChat);
+            this.Controls.Add(this.Lchat);
+            this.Controls.Add(this.Bdisconnect);
+            this.Controls.Add(this.Ttopic);
+            this.Controls.Add(this.Ltopic);
+            this.Controls.Add(this.Tnickname);
+            this.Controls.Add(this.Bconnect);
+            this.Controls.Add(this.Lnickname);
+            this.Controls.Add(this.Tmessage);
+            this.Controls.Add(this.Lmessage);
+            this.Controls.Add(this.Bpublish);
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
@@ -170,17 +173,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Bpublish;
+        private System.Windows.Forms.Label Lmessage;
+        private System.Windows.Forms.TextBox Tmessage;
+        private System.Windows.Forms.Label Lnickname;
+        private System.Windows.Forms.TextBox Tnickname;
+        private System.Windows.Forms.Button Bconnect;
+        private System.Windows.Forms.Label Ltopic;
+        private System.Windows.Forms.TextBox Ttopic;
+        private System.Windows.Forms.Button Bdisconnect;
+        private System.Windows.Forms.Label Lchat;
+        private System.Windows.Forms.ListBox listChat;
     }
 }
 
