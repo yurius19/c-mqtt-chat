@@ -70,7 +70,6 @@
             this.Tmessage.Name = "Tmessage";
             this.Tmessage.Size = new System.Drawing.Size(371, 132);
             this.Tmessage.TabIndex = 4;
-            this.Tmessage.TextChanged += new System.EventHandler(this.Tmessage_TextChanged);
             // 
             // Lnickname
             // 
@@ -90,7 +89,6 @@
             this.Tnickname.Name = "Tnickname";
             this.Tnickname.Size = new System.Drawing.Size(109, 20);
             this.Tnickname.TabIndex = 7;
-            this.Tnickname.TextChanged += new System.EventHandler(this.Tnickname_TextChanged);
             // 
             // Bconnect
             // 
@@ -145,7 +143,6 @@
             this.listChat.Name = "listChat";
             this.listChat.Size = new System.Drawing.Size(420, 225);
             this.listChat.TabIndex = 12;
-            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Form1
             // 

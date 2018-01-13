@@ -96,19 +96,6 @@ namespace Chat_mqtt
             Console.WriteLine("Disconnected");
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Tnickname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tmessage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
