@@ -44,6 +44,8 @@ namespace Chat_mqtt
                 String msg = System.Text.UTF8Encoding.UTF8.GetString(e.Message);
                 Char delimiter = '*';
                 String[] substrings = msg.Split(delimiter);
+                foreach (var substring in substrings)
+                    Console.WriteLine(substring);
                 SetText(substrings[0] + ":" + substrings[1] + " " + substrings[2]+": "+substrings[3]);
             }
             catch (InvalidCastException ex)
@@ -76,7 +78,7 @@ namespace Chat_mqtt
                 minute = moment.Minute;
                 shour = hour.ToString();
                 sminute = minute.ToString();
-                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(shour+"*"+sminute+"*"+Tnickname.Text+"*"+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(shour+'*'+sminute+'*'+Tnickname.Text+'*'+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                 //listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
             }
             catch (InvalidCastException ex)
