@@ -43,10 +43,9 @@
             // 
             // Bpublish
             // 
-            this.Bpublish.Location = new System.Drawing.Point(315, 260);
-            this.Bpublish.Margin = new System.Windows.Forms.Padding(2);
+            this.Bpublish.Location = new System.Drawing.Point(472, 400);
             this.Bpublish.Name = "Bpublish";
-            this.Bpublish.Size = new System.Drawing.Size(67, 23);
+            this.Bpublish.Size = new System.Drawing.Size(100, 35);
             this.Bpublish.TabIndex = 1;
             this.Bpublish.Text = "Invia";
             this.Bpublish.UseVisualStyleBackColor = true;
@@ -55,47 +54,43 @@
             // Lmessage
             // 
             this.Lmessage.AutoSize = true;
-            this.Lmessage.Location = new System.Drawing.Point(8, 94);
-            this.Lmessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lmessage.Location = new System.Drawing.Point(12, 145);
             this.Lmessage.Name = "Lmessage";
-            this.Lmessage.Size = new System.Drawing.Size(77, 13);
+            this.Lmessage.Size = new System.Drawing.Size(116, 20);
             this.Lmessage.TabIndex = 3;
             this.Lmessage.Text = "Your message:";
             // 
             // Tmessage
             // 
-            this.Tmessage.Location = new System.Drawing.Point(11, 120);
-            this.Tmessage.Margin = new System.Windows.Forms.Padding(2);
+            this.Tmessage.Location = new System.Drawing.Point(16, 185);
             this.Tmessage.Multiline = true;
             this.Tmessage.Name = "Tmessage";
-            this.Tmessage.Size = new System.Drawing.Size(371, 132);
+            this.Tmessage.Size = new System.Drawing.Size(554, 201);
             this.Tmessage.TabIndex = 4;
             // 
             // Lnickname
             // 
             this.Lnickname.AutoSize = true;
-            this.Lnickname.Location = new System.Drawing.Point(8, 6);
-            this.Lnickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lnickname.Location = new System.Drawing.Point(12, 9);
             this.Lnickname.Name = "Lnickname";
-            this.Lnickname.Size = new System.Drawing.Size(58, 13);
+            this.Lnickname.Size = new System.Drawing.Size(83, 20);
             this.Lnickname.TabIndex = 5;
             this.Lnickname.Text = "Nickname:";
             // 
             // Tnickname
             // 
-            this.Tnickname.Location = new System.Drawing.Point(67, 4);
-            this.Tnickname.Margin = new System.Windows.Forms.Padding(2);
+            this.Tnickname.Location = new System.Drawing.Point(100, 6);
             this.Tnickname.Multiline = true;
             this.Tnickname.Name = "Tnickname";
-            this.Tnickname.Size = new System.Drawing.Size(109, 20);
+            this.Tnickname.Size = new System.Drawing.Size(162, 29);
             this.Tnickname.TabIndex = 7;
+            this.Tnickname.TextChanged += new System.EventHandler(this.Tnickname_TextChanged);
             // 
             // Bconnect
             // 
-            this.Bconnect.Location = new System.Drawing.Point(202, 19);
-            this.Bconnect.Margin = new System.Windows.Forms.Padding(2);
+            this.Bconnect.Location = new System.Drawing.Point(303, 29);
             this.Bconnect.Name = "Bconnect";
-            this.Bconnect.Size = new System.Drawing.Size(55, 24);
+            this.Bconnect.Size = new System.Drawing.Size(82, 37);
             this.Bconnect.TabIndex = 6;
             this.Bconnect.Text = "Connect";
             this.Bconnect.UseVisualStyleBackColor = true;
@@ -104,24 +99,27 @@
             // Ltopic
             // 
             this.Ltopic.AutoSize = true;
-            this.Ltopic.Location = new System.Drawing.Point(8, 43);
+            this.Ltopic.Location = new System.Drawing.Point(12, 66);
+            this.Ltopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Ltopic.Name = "Ltopic";
-            this.Ltopic.Size = new System.Drawing.Size(37, 13);
+            this.Ltopic.Size = new System.Drawing.Size(51, 20);
             this.Ltopic.TabIndex = 8;
             this.Ltopic.Text = "Topic:";
             // 
             // Ttopic
             // 
-            this.Ttopic.Location = new System.Drawing.Point(67, 40);
+            this.Ttopic.Location = new System.Drawing.Point(100, 62);
+            this.Ttopic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Ttopic.Name = "Ttopic";
-            this.Ttopic.Size = new System.Drawing.Size(109, 20);
+            this.Ttopic.Size = new System.Drawing.Size(162, 26);
             this.Ttopic.TabIndex = 9;
             // 
             // Bdisconnect
             // 
-            this.Bdisconnect.Location = new System.Drawing.Point(814, 260);
+            this.Bdisconnect.Location = new System.Drawing.Point(1221, 400);
+            this.Bdisconnect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bdisconnect.Name = "Bdisconnect";
-            this.Bdisconnect.Size = new System.Drawing.Size(75, 23);
+            this.Bdisconnect.Size = new System.Drawing.Size(112, 35);
             this.Bdisconnect.TabIndex = 10;
             this.Bdisconnect.Text = "Quit";
             this.Bdisconnect.UseVisualStyleBackColor = true;
@@ -130,25 +128,29 @@
             // Lchat
             // 
             this.Lchat.AutoSize = true;
-            this.Lchat.Location = new System.Drawing.Point(465, 5);
+            this.Lchat.Location = new System.Drawing.Point(698, 8);
+            this.Lchat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lchat.Name = "Lchat";
-            this.Lchat.Size = new System.Drawing.Size(32, 13);
+            this.Lchat.Size = new System.Drawing.Size(47, 20);
             this.Lchat.TabIndex = 11;
             this.Lchat.Text = "Chat:";
             // 
             // listChat
             // 
             this.listChat.FormattingEnabled = true;
-            this.listChat.Location = new System.Drawing.Point(468, 27);
+            this.listChat.ItemHeight = 20;
+            this.listChat.Location = new System.Drawing.Point(702, 42);
+            this.listChat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listChat.Name = "listChat";
-            this.listChat.Size = new System.Drawing.Size(420, 225);
+            this.listChat.Size = new System.Drawing.Size(628, 344);
             this.listChat.TabIndex = 12;
+            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 309);
+            this.ClientSize = new System.Drawing.Size(1350, 475);
             this.Controls.Add(this.listChat);
             this.Controls.Add(this.Lchat);
             this.Controls.Add(this.Bdisconnect);
@@ -161,7 +163,6 @@
             this.Controls.Add(this.Lmessage);
             this.Controls.Add(this.Bpublish);
             this.ForeColor = System.Drawing.Color.Black;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

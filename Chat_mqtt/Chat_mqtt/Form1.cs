@@ -34,12 +34,14 @@ namespace Chat_mqtt
 
         private void EventPublished(Object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
         {
+            String nick;
+            nick = Tnickname.Text;
             try
             {
                 //SetText("*** Received Message");
                 //SetText("*** Topic: " + e.Topic);
                 
-                SetText("*** Message: " + System.Text.UTF8Encoding.UTF8.GetString(e.Message));
+                SetText(nick+": "+ System.Text.UTF8Encoding.UTF8.GetString(e.Message));
                 //SetText("");
             }
             catch (InvalidCastException ex)
@@ -62,6 +64,8 @@ namespace Chat_mqtt
 
         private void Bpublish_Click(object sender, EventArgs e)
         {
+            String nick;
+            nick = Tnickname.Text;
             try
             {
                 client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
@@ -95,6 +99,14 @@ namespace Chat_mqtt
             listChat.Items.Add("*Client disconnected");
         }
 
+        private void listChat_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Tnickname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
