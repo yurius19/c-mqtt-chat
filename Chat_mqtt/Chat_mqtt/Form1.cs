@@ -81,14 +81,19 @@ namespace Chat_mqtt
         {
             try
             {
-                // use a unique id as client id, each time we start the application
-                clientId = Guid.NewGuid().ToString();//generazione id?
-                client.Connect(clientId);
-                Tnickname.ReadOnly = true;
-                Ttopic.ReadOnly = true;
-                listChat.Items.Add("* Client connected");
-                client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
+                if((Tnickname.Text.Equals("")) || (Ttopic.Text.Equals("")) == false)
+                {
+                    // use a unique id as client id, each time we start the application
+                    clientId = Guid.NewGuid().ToString();//generazione id?
+                    client.Connect(clientId);
+                    Tnickname.ReadOnly = true;
+                    Ttopic.ReadOnly = true;
+                    listChat.Items.Add("* Client connected");
+                    client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+                    listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
+                }
+
+                
             }
             catch (InvalidCastException ex)
             {
