@@ -21,6 +21,7 @@ namespace Chat_mqtt
         string clientId;
         delegate void SetTextCallback(string text);
         String nick;
+        System.DateTime moment = new System.DateTime();
 
         public Form1()
         {
@@ -43,7 +44,7 @@ namespace Chat_mqtt
                 String msg = System.Text.UTF8Encoding.UTF8.GetString(e.Message);
                 Char delimiter = '*';
                 String[] substrings = msg.Split(delimiter);
-                SetText(substrings[0] +": "+ substrings[1]);
+                SetText(substrings[0] + ":" + substrings[1] + " " + substrings[2]+": "+substrings[3]);
             }
             catch (InvalidCastException ex)
             {
@@ -67,10 +68,15 @@ namespace Chat_mqtt
         {
             //String nick;
             //nick = Tnickname.Text;
-
+            int hour, minute;
+            String shour, sminute;
             try
             {
-                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tnickname.Text+"*"+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                hour = moment.Hour;
+                minute = moment.Minute;
+                shour = hour.ToString();
+                sminute = minute.ToString();
+                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(shour+"*"+sminute+"*"+Tnickname.Text+"*"+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                 //listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
             }
             catch (InvalidCastException ex)
