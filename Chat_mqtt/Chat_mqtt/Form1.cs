@@ -93,7 +93,7 @@ namespace Chat_mqtt
         private void Bdisconnect_Click(object sender, EventArgs e)
         {
             client.Disconnect();
-            Console.WriteLine("Disconnected");
+            listChat.Items.Add("*Client disconnected");
         }
 
 
