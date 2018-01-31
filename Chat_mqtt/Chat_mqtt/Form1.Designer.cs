@@ -113,6 +113,7 @@
             this.Ttopic.Name = "Ttopic";
             this.Ttopic.Size = new System.Drawing.Size(162, 26);
             this.Ttopic.TabIndex = 9;
+            this.Ttopic.TextChanged += new System.EventHandler(this.Ttopic_TextChanged);
             // 
             // Bdisconnect
             // 

@@ -67,6 +67,7 @@ namespace Chat_mqtt
         {
             //String nick;
             //nick = Tnickname.Text;
+
             try
             {
                 client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tnickname.Text+"*"+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
@@ -78,24 +79,23 @@ namespace Chat_mqtt
         }
 
         //connect fa anche subscribe (?)
-        //Controllare che non siano vuoti i campi
         private void Bconnect_Click(object sender, EventArgs e)
         {
             try
             {
+                // use a unique id as client id, each time we start the application
+                clientId = Guid.NewGuid().ToString();//generazione id?
+                client.Connect(clientId);
+                
                 var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
-                if ((regexItem.IsMatch(Tnickname.Text))&&(regexItem.IsMatch(Ttopic.Text)))
+                if (regexItem.IsMatch(Tnickname.Text))
                 {
-                    // use a unique id as client id, each time we start the application
-                    clientId = Guid.NewGuid().ToString();//generazione id?
-                    client.Connect(clientId);
                     Tnickname.ReadOnly = true;
                     Ttopic.ReadOnly = true;
                     listChat.Items.Add("* Client connected");
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
                     listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
                     Bconnect.Enabled = false;
-                    LErrorNickname.Visible = false;
                 }
                 else
                 {
@@ -118,6 +118,24 @@ namespace Chat_mqtt
 
         }
 
+        private void listChat_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Tnickname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ttopic_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
