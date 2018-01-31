@@ -19,6 +19,7 @@ namespace Chat_mqtt
         MqttClient client;
         string clientId;
         delegate void SetTextCallback(string text);
+        String nick;
 
         public Form1()
         {
@@ -34,8 +35,6 @@ namespace Chat_mqtt
 
         private void EventPublished(Object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
         {
-            String nick;
-            nick = Tnickname.Text;
             try
             {
                 //SetText("*** Received Message");
@@ -81,19 +80,15 @@ namespace Chat_mqtt
         {
             try
             {
-                if((Tnickname.Text.Equals("")) || (Ttopic.Text.Equals("")) == false)
-                {
-                    // use a unique id as client id, each time we start the application
-                    clientId = Guid.NewGuid().ToString();//generazione id?
-                    client.Connect(clientId);
-                    Tnickname.ReadOnly = true;
-                    Ttopic.ReadOnly = true;
-                    listChat.Items.Add("* Client connected");
-                    client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                    listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
-                }
-
-                
+                nick = Tnickname.Text;
+                // use a unique id as client id, each time we start the application
+                clientId = Guid.NewGuid().ToString();//generazione id?
+                client.Connect(clientId);
+                Tnickname.ReadOnly = true;
+                Ttopic.ReadOnly = true;
+                listChat.Items.Add("* Client connected");
+                client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+                listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
             }
             catch (InvalidCastException ex)
             {
