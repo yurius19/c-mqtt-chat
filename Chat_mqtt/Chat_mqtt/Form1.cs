@@ -64,8 +64,8 @@ namespace Chat_mqtt
 
         private void Bpublish_Click(object sender, EventArgs e)
         {
-            String nick;
-            nick = Tnickname.Text;
+            //String nick;
+            //nick = Tnickname.Text;
             try
             {
                 client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
