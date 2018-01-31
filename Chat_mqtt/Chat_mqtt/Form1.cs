@@ -38,6 +38,7 @@ namespace Chat_mqtt
             {
                 //SetText("*** Received Message");
                 //SetText("*** Topic: " + e.Topic);
+                
                 SetText("*** Message: " + System.Text.UTF8Encoding.UTF8.GetString(e.Message));
                 //SetText("");
             }
