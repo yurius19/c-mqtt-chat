@@ -39,9 +39,10 @@ namespace Chat_mqtt
             {
                 //SetText("*** Received Message");
                 //SetText("*** Topic: " + e.Topic);
-                
-                SetText(nick+": "+ System.Text.UTF8Encoding.UTF8.GetString(e.Message));
-                //SetText("");
+                String msg = System.Text.UTF8Encoding.UTF8.GetString(e.Message);
+                Char delimiter = '*';
+                String[] substrings = msg.Split(delimiter);
+                SetText(substrings[0] +": "+ substrings[1]);
             }
             catch (InvalidCastException ex)
             {
@@ -80,7 +81,6 @@ namespace Chat_mqtt
         {
             try
             {
-                nick = Tnickname.Text;
                 // use a unique id as client id, each time we start the application
                 clientId = Guid.NewGuid().ToString();//generazione id?
                 client.Connect(clientId);
