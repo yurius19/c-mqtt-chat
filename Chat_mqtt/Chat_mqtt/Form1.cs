@@ -67,7 +67,7 @@ namespace Chat_mqtt
             //nick = Tnickname.Text;
             try
             {
-                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tnickname.Text+"*"+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                 //listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
             }
             catch (InvalidCastException ex)
