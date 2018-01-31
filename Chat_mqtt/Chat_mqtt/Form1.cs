@@ -85,11 +85,12 @@ namespace Chat_mqtt
                 // use a unique id as client id, each time we start the application
                 clientId = Guid.NewGuid().ToString();//generazione id?
                 client.Connect(clientId);
-                Tnickname.ReadOnly = true;
-                Ttopic.ReadOnly = true;
+                
                 var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
                 if (regexItem.IsMatch(Tnickname.Text))
                 {
+                    Tnickname.ReadOnly = true;
+                    Ttopic.ReadOnly = true;
                     listChat.Items.Add("* Client connected");
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
                     listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
