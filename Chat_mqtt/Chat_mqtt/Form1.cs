@@ -67,6 +67,7 @@ namespace Chat_mqtt
         {
             //String nick;
             //nick = Tnickname.Text;
+
             try
             {
                 client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tnickname.Text+"*"+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
@@ -128,6 +129,11 @@ namespace Chat_mqtt
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ttopic_TextChanged(object sender, EventArgs e)
         {
 
         }
