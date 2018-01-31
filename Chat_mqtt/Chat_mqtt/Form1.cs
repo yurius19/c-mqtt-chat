@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //M2Mqtt Library
@@ -86,9 +87,18 @@ namespace Chat_mqtt
                 client.Connect(clientId);
                 Tnickname.ReadOnly = true;
                 Ttopic.ReadOnly = true;
-                listChat.Items.Add("* Client connected");
-                client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
+                var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+                if (regexItem.IsMatch(Tnickname.Text))
+                {
+                    listChat.Items.Add("* Client connected");
+                    client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+                    listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
+                }
+                else
+                {
+                    LErrorNickname.Text=("Il Nickname contiene dei caratteri non validi!");
+                }
+
             }
             catch (InvalidCastException ex)
             {
@@ -109,6 +119,11 @@ namespace Chat_mqtt
         }
 
         private void Tnickname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

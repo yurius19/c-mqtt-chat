@@ -39,6 +39,7 @@
             this.Bdisconnect = new System.Windows.Forms.Button();
             this.Lchat = new System.Windows.Forms.Label();
             this.listChat = new System.Windows.Forms.ListBox();
+            this.LErrorNickname = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Bpublish
@@ -146,11 +147,21 @@
             this.listChat.TabIndex = 12;
             this.listChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged);
             // 
+            // LErrorNickname
+            // 
+            this.LErrorNickname.AutoSize = true;
+            this.LErrorNickname.Location = new System.Drawing.Point(407, 37);
+            this.LErrorNickname.Name = "LErrorNickname";
+            this.LErrorNickname.Size = new System.Drawing.Size(0, 20);
+            this.LErrorNickname.TabIndex = 13;
+            this.LErrorNickname.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 475);
+            this.Controls.Add(this.LErrorNickname);
             this.Controls.Add(this.listChat);
             this.Controls.Add(this.Lchat);
             this.Controls.Add(this.Bdisconnect);
@@ -182,6 +193,7 @@
         private System.Windows.Forms.Button Bdisconnect;
         private System.Windows.Forms.Label Lchat;
         private System.Windows.Forms.ListBox listChat;
+        private System.Windows.Forms.Label LErrorNickname;
     }
 }
 
