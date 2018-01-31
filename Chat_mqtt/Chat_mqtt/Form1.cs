@@ -93,6 +93,7 @@ namespace Chat_mqtt
                     listChat.Items.Add("* Client connected");
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
                     listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
+                    Bconnect.Enabled = false;
                 }
                 else
                 {
@@ -111,6 +112,8 @@ namespace Chat_mqtt
             listChat.Items.Add("*Client disconnected");
             Tnickname.ReadOnly = false;
             Ttopic.ReadOnly = false;
+            Bconnect.Enabled = true; 
+
         }
 
         private void listChat_SelectedIndexChanged(object sender, EventArgs e)
