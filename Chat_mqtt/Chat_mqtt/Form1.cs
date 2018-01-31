@@ -77,8 +77,7 @@ namespace Chat_mqtt
             try
             {
                 // use a unique id as client id, each time we start the application
-                clientId = Guid.NewGuid().ToString();
-
+                clientId = Guid.NewGuid().ToString();//generazione id?
                 client.Connect(clientId);
                 listChat.Items.Add("* Client connected");
                 client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
