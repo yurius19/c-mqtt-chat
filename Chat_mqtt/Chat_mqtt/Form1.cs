@@ -36,10 +36,10 @@ namespace Chat_mqtt
         {
             try
             {
-                SetText("*** Received Message");
-                SetText("*** Topic: " + e.Topic);
+                //SetText("*** Received Message");
+                //SetText("*** Topic: " + e.Topic);
                 SetText("*** Message: " + System.Text.UTF8Encoding.UTF8.GetString(e.Message));
-                SetText("");
+                //SetText("");
             }
             catch (InvalidCastException ex)
             {
@@ -63,9 +63,8 @@ namespace Chat_mqtt
         {
             try
             {
-                //client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE);
                 client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
-                listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
+                //listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
             }
             catch (InvalidCastException ex)
             {
