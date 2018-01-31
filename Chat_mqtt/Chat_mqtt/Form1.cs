@@ -19,6 +19,7 @@ namespace Chat_mqtt
         MqttClient client;
         string clientId;
         delegate void SetTextCallback(string text);
+        String nick;
 
         public Form1()
         {
@@ -34,8 +35,6 @@ namespace Chat_mqtt
 
         private void EventPublished(Object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
         {
-            String nick;
-            nick = Tnickname.Text;
             try
             {
                 //SetText("*** Received Message");
@@ -81,6 +80,7 @@ namespace Chat_mqtt
         {
             try
             {
+                nick = Tnickname.Text;
                 // use a unique id as client id, each time we start the application
                 clientId = Guid.NewGuid().ToString();//generazione id?
                 client.Connect(clientId);
