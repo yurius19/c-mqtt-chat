@@ -85,7 +85,6 @@
             this.Tnickname.Name = "Tnickname";
             this.Tnickname.Size = new System.Drawing.Size(162, 29);
             this.Tnickname.TabIndex = 7;
-            this.Tnickname.TextChanged += new System.EventHandler(this.Tnickname_TextChanged);
             // 
             // Bconnect
             // 
@@ -146,7 +145,6 @@
             this.listChat.Name = "listChat";
             this.listChat.Size = new System.Drawing.Size(628, 344);
             this.listChat.TabIndex = 12;
-            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged);
             // 
             // LErrorNickname
             // 
@@ -155,7 +153,6 @@
             this.LErrorNickname.Name = "LErrorNickname";
             this.LErrorNickname.Size = new System.Drawing.Size(0, 20);
             this.LErrorNickname.TabIndex = 13;
-            this.LErrorNickname.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
