@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -22,11 +23,12 @@ namespace Chat_mqtt
         delegate void SetTextCallback(string text);
         String nick;
         System.DateTime moment = new System.DateTime();
+        Image img;
 
         public Form1()
         {
             InitializeComponent();
-            string BrokerAddress = "test.mosquitto.org";
+            string BrokerAddress = "127.0.0.1";
 
             client = new MqttClient(BrokerAddress);
 
@@ -141,5 +143,39 @@ namespace Chat_mqtt
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void b_allega_Click(object sender, EventArgs e)
+        {
+            string path;
+            OpenFileDialog file = new OpenFileDialog();
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                path = file.FileName;
+                listChat.Items.Add(path);
+                img = Image.FromFile(path);
+                byte[] immagine= Convertitore(img);
+                listChat.Items.Add(immagine);
+            }
+
+        }
+        private byte[] Convertitore(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
     }
+    
 }

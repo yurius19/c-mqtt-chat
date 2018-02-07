@@ -40,6 +40,7 @@
             this.Lchat = new System.Windows.Forms.Label();
             this.listChat = new System.Windows.Forms.ListBox();
             this.LErrorNickname = new System.Windows.Forms.Label();
+            this.b_allega = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bpublish
@@ -154,11 +155,22 @@
             this.LErrorNickname.Size = new System.Drawing.Size(0, 20);
             this.LErrorNickname.TabIndex = 13;
             // 
+            // b_allega
+            // 
+            this.b_allega.Location = new System.Drawing.Point(354, 400);
+            this.b_allega.Name = "b_allega";
+            this.b_allega.Size = new System.Drawing.Size(100, 35);
+            this.b_allega.TabIndex = 12;
+            this.b_allega.Text = "Allega";
+            this.b_allega.UseVisualStyleBackColor = true;
+            this.b_allega.Click += new System.EventHandler(this.b_allega_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 475);
+            this.Controls.Add(this.b_allega);
             this.Controls.Add(this.LErrorNickname);
             this.Controls.Add(this.listChat);
             this.Controls.Add(this.Lchat);
@@ -174,6 +186,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +205,7 @@
         private System.Windows.Forms.Label Lchat;
         private System.Windows.Forms.ListBox listChat;
         private System.Windows.Forms.Label LErrorNickname;
+        private System.Windows.Forms.Button b_allega;
     }
 }
 
