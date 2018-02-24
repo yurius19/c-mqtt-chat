@@ -41,11 +41,14 @@
             this.listChat = new System.Windows.Forms.ListBox();
             this.LErrorNickname = new System.Windows.Forms.Label();
             this.b_allega = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.RichTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // Bpublish
             // 
-            this.Bpublish.Location = new System.Drawing.Point(472, 400);
+            this.Bpublish.Location = new System.Drawing.Point(2280, 968);
             this.Bpublish.Name = "Bpublish";
             this.Bpublish.Size = new System.Drawing.Size(100, 35);
             this.Bpublish.TabIndex = 1;
@@ -56,7 +59,7 @@
             // Lmessage
             // 
             this.Lmessage.AutoSize = true;
-            this.Lmessage.Location = new System.Drawing.Point(12, 145);
+            this.Lmessage.Location = new System.Drawing.Point(146, 942);
             this.Lmessage.Name = "Lmessage";
             this.Lmessage.Size = new System.Drawing.Size(116, 20);
             this.Lmessage.TabIndex = 3;
@@ -64,11 +67,12 @@
             // 
             // Tmessage
             // 
-            this.Tmessage.Location = new System.Drawing.Point(16, 185);
+            this.Tmessage.Location = new System.Drawing.Point(383, 939);
             this.Tmessage.Multiline = true;
             this.Tmessage.Name = "Tmessage";
-            this.Tmessage.Size = new System.Drawing.Size(554, 201);
+            this.Tmessage.Size = new System.Drawing.Size(1997, 23);
             this.Tmessage.TabIndex = 4;
+            this.Tmessage.TextChanged += new System.EventHandler(this.Tmessage_TextChanged);
             // 
             // Lnickname
             // 
@@ -89,7 +93,7 @@
             // 
             // Bconnect
             // 
-            this.Bconnect.Location = new System.Drawing.Point(303, 29);
+            this.Bconnect.Location = new System.Drawing.Point(13, 99);
             this.Bconnect.Name = "Bconnect";
             this.Bconnect.Size = new System.Drawing.Size(82, 37);
             this.Bconnect.TabIndex = 6;
@@ -118,7 +122,7 @@
             // 
             // Bdisconnect
             // 
-            this.Bdisconnect.Location = new System.Drawing.Point(1221, 400);
+            this.Bdisconnect.Location = new System.Drawing.Point(102, 101);
             this.Bdisconnect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bdisconnect.Name = "Bdisconnect";
             this.Bdisconnect.Size = new System.Drawing.Size(112, 35);
@@ -146,6 +150,7 @@
             this.listChat.Name = "listChat";
             this.listChat.Size = new System.Drawing.Size(628, 344);
             this.listChat.TabIndex = 12;
+            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged_1);
             // 
             // LErrorNickname
             // 
@@ -157,7 +162,7 @@
             // 
             // b_allega
             // 
-            this.b_allega.Location = new System.Drawing.Point(354, 400);
+            this.b_allega.Location = new System.Drawing.Point(2174, 968);
             this.b_allega.Name = "b_allega";
             this.b_allega.Size = new System.Drawing.Size(100, 35);
             this.b_allega.TabIndex = 12;
@@ -165,11 +170,34 @@
             this.b_allega.UseVisualStyleBackColor = true;
             this.b_allega.Click += new System.EventHandler(this.b_allega_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // RichTextBox1
+            // 
+            this.RichTextBox1.Location = new System.Drawing.Point(269, 66);
+            this.RichTextBox1.Name = "RichTextBox1";
+            this.RichTextBox1.Size = new System.Drawing.Size(2111, 858);
+            this.RichTextBox1.TabIndex = 14;
+            this.RichTextBox1.Text = "";
+            this.RichTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(831, 224);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1516, 487);
+            this.listView1.TabIndex = 15;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 475);
+            this.ClientSize = new System.Drawing.Size(2388, 1018);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.RichTextBox1);
             this.Controls.Add(this.b_allega);
             this.Controls.Add(this.LErrorNickname);
             this.Controls.Add(this.listChat);
@@ -206,6 +234,9 @@
         private System.Windows.Forms.ListBox listChat;
         private System.Windows.Forms.Label LErrorNickname;
         private System.Windows.Forms.Button b_allega;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RichTextBox RichTextBox1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

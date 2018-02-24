@@ -22,7 +22,7 @@ namespace Chat_mqtt
         string clientId;
         delegate void SetTextCallback(string text);
         String nick;
-        System.DateTime moment = new System.DateTime();
+        //System.DateTime moment = new System.DateTime(); inutile?
         Image img;
 
         public Form1()
@@ -33,7 +33,9 @@ namespace Chat_mqtt
             client = new MqttClient(BrokerAddress);
 
             client.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
-            
+            RichTextBox1.ReadOnly = true;
+            RichTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            Bdisconnect.Enabled = false;
 
         }
 
@@ -57,14 +59,15 @@ namespace Chat_mqtt
 
         private void SetText(string text)
         {
-            if (this.listChat.InvokeRequired)
+            if (this.RichTextBox1.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                this.listChat.Items.Add(text);
+                this.RichTextBox1.AppendText(text+"\n");
+                //this.listChat.Items.Add(text);
             }
         }
 
@@ -78,13 +81,13 @@ namespace Chat_mqtt
                 ora = DateTime.Now.ToString("h:mm:ss");
                 client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(ora+'*'+Tnickname.Text+'*'+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                 //listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
+                Tmessage.Clear();
             }
             catch (InvalidCastException ex)
             {
             }
         }
 
-        //connect fa anche subscribe (?)
         private void Bconnect_Click(object sender, EventArgs e)
         {
             try
@@ -98,10 +101,11 @@ namespace Chat_mqtt
                 {
                     Tnickname.ReadOnly = true;
                     Ttopic.ReadOnly = true;
-                    listChat.Items.Add("* Client connected");
+                    RichTextBox1.AppendText("* Client connected\n");
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                    listChat.Items.Add("** Subscribing to: " + Ttopic.Text);
+                    RichTextBox1.AppendText("** Subscribing to: " + Ttopic.Text+"\n");
                     Bconnect.Enabled = false;
+                    Bdisconnect.Enabled = true;
                 }
                 else
                 {
@@ -117,10 +121,11 @@ namespace Chat_mqtt
         private void Bdisconnect_Click(object sender, EventArgs e)
         {
             client.Disconnect();
-            listChat.Items.Add("*Client disconnected");
+            RichTextBox1.AppendText("*Client disconnected\n");
             Tnickname.ReadOnly = false;
             Ttopic.ReadOnly = false;
-            Bconnect.Enabled = true; 
+            Bconnect.Enabled = true;
+            Bdisconnect.Enabled = false;
 
         }
 
@@ -161,10 +166,26 @@ namespace Chat_mqtt
             if (file.ShowDialog() == DialogResult.OK)
             {
                 path = file.FileName;
-                listChat.Items.Add(path);
-                img = Image.FromFile(path);
-                byte[] immagine= Convertitore(img);
-                listChat.Items.Add(immagine);
+                Image image = Image.FromFile(path);
+                Clipboard.SetDataObject(image);
+                //Clipboard.SetImage(image);
+                RichTextBox1.AppendText(path+"\n");
+                DataFormats.Format dataFormat = DataFormats.GetFormat(DataFormats.Bitmap);
+                if (RichTextBox1.CanPaste(dataFormat))
+                {
+                    
+                    RichTextBox1.Paste(dataFormat);
+                    RichTextBox1.AppendText("prova immagine\n");
+                    
+                }
+                else
+                    RichTextBox1.AppendText("niente da fare\n");
+                //RichTextBox1.Paste();
+                //RichTextBox1.AppendText("\n");
+                //listView.Items.Add(path);
+                //this.img = Image.FromFile(path);
+                //byte[] img= Convertitore(this.img);
+                //RichTextBox1.(img);
             }
 
         }
@@ -175,6 +196,26 @@ namespace Chat_mqtt
                 imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 return ms.ToArray();
             }
+        }
+
+        private void listChat_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tmessage_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     
