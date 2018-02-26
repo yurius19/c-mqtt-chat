@@ -181,7 +181,7 @@
             this.RichTextBox1.Size = new System.Drawing.Size(132, 129);
             this.RichTextBox1.TabIndex = 14;
             this.RichTextBox1.Text = "";
-            this.RichTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.RichTextBox1.KeyDown += RichTextBox1_KeyDown;
             // 
             // listView1
             // 
@@ -220,7 +220,10 @@
             this.PerformLayout();
 
         }
-
+        private void RichTextBox1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
         #endregion
         private System.Windows.Forms.Button Bpublish;
         private System.Windows.Forms.Label Lmessage;
