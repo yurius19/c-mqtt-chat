@@ -128,36 +128,6 @@ namespace Chat_mqtt
 
         }
 
-        private void listChat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tnickname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Ttopic_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void b_allega_Click(object sender, EventArgs e)
         {
             string path;
@@ -197,30 +167,6 @@ namespace Chat_mqtt
             }
         }
 
-        private void listChat_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Tmessage_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
     
 }

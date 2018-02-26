@@ -72,7 +72,6 @@
             this.Tmessage.Name = "Tmessage";
             this.Tmessage.Size = new System.Drawing.Size(1024, 23);
             this.Tmessage.TabIndex = 4;
-            this.Tmessage.TextChanged += new System.EventHandler(this.Tmessage_TextChanged);
             // 
             // Lnickname
             // 
@@ -118,7 +117,6 @@
             this.Ttopic.Name = "Ttopic";
             this.Ttopic.Size = new System.Drawing.Size(162, 26);
             this.Ttopic.TabIndex = 9;
-            this.Ttopic.TextChanged += new System.EventHandler(this.Ttopic_TextChanged);
             // 
             // Bdisconnect
             // 
@@ -150,7 +148,6 @@
             this.listChat.Name = "listChat";
             this.listChat.Size = new System.Drawing.Size(628, 344);
             this.listChat.TabIndex = 12;
-            this.listChat.SelectedIndexChanged += new System.EventHandler(this.listChat_SelectedIndexChanged_1);
             // 
             // LErrorNickname
             // 
@@ -190,7 +187,6 @@
             this.listView1.Size = new System.Drawing.Size(138, 150);
             this.listView1.TabIndex = 15;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -215,7 +211,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            //this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
