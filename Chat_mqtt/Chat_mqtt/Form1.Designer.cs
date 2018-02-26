@@ -48,7 +48,7 @@
             // 
             // Bpublish
             // 
-            this.Bpublish.Location = new System.Drawing.Point(2280, 968);
+            this.Bpublish.Location = new System.Drawing.Point(940, 470);
             this.Bpublish.Name = "Bpublish";
             this.Bpublish.Size = new System.Drawing.Size(100, 35);
             this.Bpublish.TabIndex = 1;
@@ -59,7 +59,7 @@
             // Lmessage
             // 
             this.Lmessage.AutoSize = true;
-            this.Lmessage.Location = new System.Drawing.Point(146, 942);
+            this.Lmessage.Location = new System.Drawing.Point(12, 394);
             this.Lmessage.Name = "Lmessage";
             this.Lmessage.Size = new System.Drawing.Size(116, 20);
             this.Lmessage.TabIndex = 3;
@@ -67,10 +67,10 @@
             // 
             // Tmessage
             // 
-            this.Tmessage.Location = new System.Drawing.Point(383, 939);
+            this.Tmessage.Location = new System.Drawing.Point(16, 428);
             this.Tmessage.Multiline = true;
             this.Tmessage.Name = "Tmessage";
-            this.Tmessage.Size = new System.Drawing.Size(1997, 23);
+            this.Tmessage.Size = new System.Drawing.Size(1024, 23);
             this.Tmessage.TabIndex = 4;
             this.Tmessage.TextChanged += new System.EventHandler(this.Tmessage_TextChanged);
             // 
@@ -134,7 +134,7 @@
             // Lchat
             // 
             this.Lchat.AutoSize = true;
-            this.Lchat.Location = new System.Drawing.Point(698, 8);
+            this.Lchat.Location = new System.Drawing.Point(408, 6);
             this.Lchat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lchat.Name = "Lchat";
             this.Lchat.Size = new System.Drawing.Size(47, 20);
@@ -145,7 +145,7 @@
             // 
             this.listChat.FormattingEnabled = true;
             this.listChat.ItemHeight = 20;
-            this.listChat.Location = new System.Drawing.Point(702, 42);
+            this.listChat.Location = new System.Drawing.Point(412, 31);
             this.listChat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listChat.Name = "listChat";
             this.listChat.Size = new System.Drawing.Size(628, 344);
@@ -162,7 +162,7 @@
             // 
             // b_allega
             // 
-            this.b_allega.Location = new System.Drawing.Point(2174, 968);
+            this.b_allega.Location = new System.Drawing.Point(834, 470);
             this.b_allega.Name = "b_allega";
             this.b_allega.Size = new System.Drawing.Size(100, 35);
             this.b_allega.TabIndex = 12;
@@ -176,26 +176,27 @@
             // 
             // RichTextBox1
             // 
-            this.RichTextBox1.Location = new System.Drawing.Point(269, 66);
+            this.RichTextBox1.Location = new System.Drawing.Point(269, 8);
             this.RichTextBox1.Name = "RichTextBox1";
-            this.RichTextBox1.Size = new System.Drawing.Size(2111, 858);
+            this.RichTextBox1.Size = new System.Drawing.Size(132, 129);
             this.RichTextBox1.TabIndex = 14;
             this.RichTextBox1.Text = "";
             this.RichTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(831, 224);
+            this.listView1.Location = new System.Drawing.Point(269, 143);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1516, 487);
+            this.listView1.Size = new System.Drawing.Size(138, 150);
             this.listView1.TabIndex = 15;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2388, 1018);
+            this.ClientSize = new System.Drawing.Size(1065, 529);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.RichTextBox1);
             this.Controls.Add(this.b_allega);
