@@ -33,7 +33,6 @@ namespace Chat_mqtt
             client = new MqttClient(BrokerAddress);
 
             client.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
-            RichTextBox1.ReadOnly = true;
             RichTextBox1.BackColor = System.Drawing.SystemColors.Window;
             Bdisconnect.Enabled = false;
 
