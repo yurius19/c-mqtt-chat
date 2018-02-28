@@ -38,19 +38,18 @@
             this.Ttopic = new System.Windows.Forms.TextBox();
             this.Bdisconnect = new System.Windows.Forms.Button();
             this.Lchat = new System.Windows.Forms.Label();
-            this.listChat = new System.Windows.Forms.ListBox();
             this.LErrorNickname = new System.Windows.Forms.Label();
             this.b_allega = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.RichTextBox1 = new System.Windows.Forms.RichTextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // Bpublish
             // 
-            this.Bpublish.Location = new System.Drawing.Point(940, 470);
+            this.Bpublish.Location = new System.Drawing.Point(829, 364);
+            this.Bpublish.Margin = new System.Windows.Forms.Padding(2);
             this.Bpublish.Name = "Bpublish";
-            this.Bpublish.Size = new System.Drawing.Size(100, 35);
+            this.Bpublish.Size = new System.Drawing.Size(67, 23);
             this.Bpublish.TabIndex = 1;
             this.Bpublish.Text = "Invia";
             this.Bpublish.UseVisualStyleBackColor = true;
@@ -59,42 +58,47 @@
             // Lmessage
             // 
             this.Lmessage.AutoSize = true;
-            this.Lmessage.Location = new System.Drawing.Point(12, 394);
+            this.Lmessage.Location = new System.Drawing.Point(11, 349);
+            this.Lmessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lmessage.Name = "Lmessage";
-            this.Lmessage.Size = new System.Drawing.Size(116, 20);
+            this.Lmessage.Size = new System.Drawing.Size(77, 13);
             this.Lmessage.TabIndex = 3;
             this.Lmessage.Text = "Your message:";
             // 
             // Tmessage
             // 
-            this.Tmessage.Location = new System.Drawing.Point(16, 428);
+            this.Tmessage.Location = new System.Drawing.Point(11, 364);
+            this.Tmessage.Margin = new System.Windows.Forms.Padding(2);
             this.Tmessage.Multiline = true;
             this.Tmessage.Name = "Tmessage";
-            this.Tmessage.Size = new System.Drawing.Size(1024, 23);
+            this.Tmessage.Size = new System.Drawing.Size(684, 16);
             this.Tmessage.TabIndex = 4;
             // 
             // Lnickname
             // 
             this.Lnickname.AutoSize = true;
-            this.Lnickname.Location = new System.Drawing.Point(12, 9);
+            this.Lnickname.Location = new System.Drawing.Point(8, 6);
+            this.Lnickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lnickname.Name = "Lnickname";
-            this.Lnickname.Size = new System.Drawing.Size(83, 20);
+            this.Lnickname.Size = new System.Drawing.Size(58, 13);
             this.Lnickname.TabIndex = 5;
             this.Lnickname.Text = "Nickname:";
             // 
             // Tnickname
             // 
-            this.Tnickname.Location = new System.Drawing.Point(100, 6);
+            this.Tnickname.Location = new System.Drawing.Point(67, 4);
+            this.Tnickname.Margin = new System.Windows.Forms.Padding(2);
             this.Tnickname.Multiline = true;
             this.Tnickname.Name = "Tnickname";
-            this.Tnickname.Size = new System.Drawing.Size(162, 29);
+            this.Tnickname.Size = new System.Drawing.Size(109, 20);
             this.Tnickname.TabIndex = 7;
             // 
             // Bconnect
             // 
-            this.Bconnect.Location = new System.Drawing.Point(13, 99);
+            this.Bconnect.Location = new System.Drawing.Point(9, 64);
+            this.Bconnect.Margin = new System.Windows.Forms.Padding(2);
             this.Bconnect.Name = "Bconnect";
-            this.Bconnect.Size = new System.Drawing.Size(82, 37);
+            this.Bconnect.Size = new System.Drawing.Size(55, 24);
             this.Bconnect.TabIndex = 6;
             this.Bconnect.Text = "Connect";
             this.Bconnect.UseVisualStyleBackColor = true;
@@ -103,27 +107,24 @@
             // Ltopic
             // 
             this.Ltopic.AutoSize = true;
-            this.Ltopic.Location = new System.Drawing.Point(12, 66);
-            this.Ltopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Ltopic.Location = new System.Drawing.Point(8, 43);
             this.Ltopic.Name = "Ltopic";
-            this.Ltopic.Size = new System.Drawing.Size(51, 20);
+            this.Ltopic.Size = new System.Drawing.Size(37, 13);
             this.Ltopic.TabIndex = 8;
             this.Ltopic.Text = "Topic:";
             // 
             // Ttopic
             // 
-            this.Ttopic.Location = new System.Drawing.Point(100, 62);
-            this.Ttopic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Ttopic.Location = new System.Drawing.Point(67, 40);
             this.Ttopic.Name = "Ttopic";
-            this.Ttopic.Size = new System.Drawing.Size(162, 26);
+            this.Ttopic.Size = new System.Drawing.Size(109, 20);
             this.Ttopic.TabIndex = 9;
             // 
             // Bdisconnect
             // 
-            this.Bdisconnect.Location = new System.Drawing.Point(102, 101);
-            this.Bdisconnect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Bdisconnect.Location = new System.Drawing.Point(68, 66);
             this.Bdisconnect.Name = "Bdisconnect";
-            this.Bdisconnect.Size = new System.Drawing.Size(112, 35);
+            this.Bdisconnect.Size = new System.Drawing.Size(75, 23);
             this.Bdisconnect.TabIndex = 10;
             this.Bdisconnect.Text = "Quit";
             this.Bdisconnect.UseVisualStyleBackColor = true;
@@ -132,36 +133,27 @@
             // Lchat
             // 
             this.Lchat.AutoSize = true;
-            this.Lchat.Location = new System.Drawing.Point(408, 6);
-            this.Lchat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lchat.Location = new System.Drawing.Point(272, 4);
             this.Lchat.Name = "Lchat";
-            this.Lchat.Size = new System.Drawing.Size(47, 20);
+            this.Lchat.Size = new System.Drawing.Size(32, 13);
             this.Lchat.TabIndex = 11;
             this.Lchat.Text = "Chat:";
-            // 
-            // listChat
-            // 
-            this.listChat.FormattingEnabled = true;
-            this.listChat.ItemHeight = 20;
-            this.listChat.Location = new System.Drawing.Point(412, 31);
-            this.listChat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listChat.Name = "listChat";
-            this.listChat.Size = new System.Drawing.Size(628, 344);
-            this.listChat.TabIndex = 12;
             // 
             // LErrorNickname
             // 
             this.LErrorNickname.AutoSize = true;
-            this.LErrorNickname.Location = new System.Drawing.Point(407, 37);
+            this.LErrorNickname.Location = new System.Drawing.Point(271, 24);
+            this.LErrorNickname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LErrorNickname.Name = "LErrorNickname";
-            this.LErrorNickname.Size = new System.Drawing.Size(0, 20);
+            this.LErrorNickname.Size = new System.Drawing.Size(0, 13);
             this.LErrorNickname.TabIndex = 13;
             // 
             // b_allega
             // 
-            this.b_allega.Location = new System.Drawing.Point(834, 470);
+            this.b_allega.Location = new System.Drawing.Point(728, 364);
+            this.b_allega.Margin = new System.Windows.Forms.Padding(2);
             this.b_allega.Name = "b_allega";
-            this.b_allega.Size = new System.Drawing.Size(100, 35);
+            this.b_allega.Size = new System.Drawing.Size(67, 23);
             this.b_allega.TabIndex = 12;
             this.b_allega.Text = "Allega";
             this.b_allega.UseVisualStyleBackColor = true;
@@ -171,33 +163,23 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // RichTextBox1
-            // 
-            this.RichTextBox1.Location = new System.Drawing.Point(269, 8);
-            this.RichTextBox1.Name = "RichTextBox1";
-            this.RichTextBox1.Size = new System.Drawing.Size(132, 129);
-            this.RichTextBox1.TabIndex = 14;
-            this.RichTextBox1.Text = "";
-            this.RichTextBox1.KeyDown += RichTextBox1_KeyDown;
-            // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(269, 143);
+            this.listView1.Location = new System.Drawing.Point(275, 24);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(138, 150);
+            this.listView1.Size = new System.Drawing.Size(621, 311);
             this.listView1.TabIndex = 15;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 529);
+            this.ClientSize = new System.Drawing.Size(917, 431);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.RichTextBox1);
             this.Controls.Add(this.b_allega);
             this.Controls.Add(this.LErrorNickname);
-            this.Controls.Add(this.listChat);
             this.Controls.Add(this.Lchat);
             this.Controls.Add(this.Bdisconnect);
             this.Controls.Add(this.Ttopic);
@@ -209,9 +191,9 @@
             this.Controls.Add(this.Lmessage);
             this.Controls.Add(this.Bpublish);
             this.ForeColor = System.Drawing.Color.Black;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            //this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,11 +213,9 @@
         private System.Windows.Forms.TextBox Ttopic;
         private System.Windows.Forms.Button Bdisconnect;
         private System.Windows.Forms.Label Lchat;
-        private System.Windows.Forms.ListBox listChat;
         private System.Windows.Forms.Label LErrorNickname;
         private System.Windows.Forms.Button b_allega;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RichTextBox RichTextBox1;
         private System.Windows.Forms.ListView listView1;
     }
 }
