@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using BrightIdeasSoftware;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace Chat_mqtt
 {
@@ -74,7 +76,7 @@ namespace Chat_mqtt
 
         private void SetImage(Image img)
         {
-            int i = 0;
+            //int i = 0;
             if (this.objectListView1.InvokeRequired)
             {
                 SetImageCallback d = new SetImageCallback(SetImage);
@@ -82,9 +84,35 @@ namespace Chat_mqtt
             }
             else
             {
-                Chat obj = new Chat("Hai inviato:", img);
-                objectListView1.AddObject(obj);
-                objectListView1.RowHeight = img.Height;
+                var destRect = new Rectangle(0, 0, 200, 200);
+                var destImage = new Bitmap(200, 200);
+                destImage.SetResolution(img.HorizontalResolution, img.VerticalResolution);
+                using (var graphics = Graphics.FromImage(destImage))
+                {
+                    graphics.CompositingMode = CompositingMode.SourceCopy;
+                    graphics.CompositingQuality = CompositingQuality.HighQuality;
+                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    graphics.SmoothingMode = SmoothingMode.HighQuality;
+                    graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                    using (var wrapMode = new ImageAttributes())
+                    {
+                        wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                        graphics.DrawImage(img, destRect, 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, wrapMode);
+                    }
+
+                    Chat obj = new Chat("Hai inviato:", destImage);
+                    objectListView1.AddObject(obj);
+                    objectListView1.SelectedIndex = index;
+                    //objectListView1.FocusedItem = objectListView1.SelectedItems[0];
+                    objectListView1.Select();
+                    objectListView1.Height = 200;
+                    objectListView1.Refresh();
+                    //index++;
+                }
+                //Chat obj = new Chat("Hai inviato:", img);
+                //objectListView1.AddObject(obj);
+                //objectListView1.RowHeight = 256;
 
 
             }
@@ -102,6 +130,7 @@ namespace Chat_mqtt
             {
                 Chat obj = new Chat(text, null);
                 objectListView1.AddObject(obj);
+                index++;
             }
         }
 
@@ -139,12 +168,14 @@ namespace Chat_mqtt
                     Ttopic.ReadOnly = true;
                     Chat obj = new Chat("Connected \n", img);
                     objectListView1.AddObject(obj);
+                    index++;
                     //dataGridView1.Rows.Add();
                     //dataGridView1.Rows[index].Cells[0].Value = "* Client connected";
                     index++;
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
                     Chat obj1 = new Chat("Subscribing to: " + Ttopic.Text + "\n",null);
                     objectListView1.AddObject(obj1);
+                    index++;
                     //dataGridView1.Rows.Add();
                     ///dataGridView1.Rows[index].Cells[0].Value = " * *Subscribing to: " + Ttopic.Text;
                     //index++;
@@ -168,6 +199,7 @@ namespace Chat_mqtt
             client.Disconnect();
             Chat obj1 = new Chat("Disconnected\nn", null);
             objectListView1.AddObject(obj1);
+            index++;
             //dataGridView1.Rows.Add();
             //dataGridView1.Rows[index].Cells[0].Value = " * Client disconnected";
             //index++;
