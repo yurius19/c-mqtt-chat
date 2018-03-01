@@ -82,8 +82,10 @@ namespace Chat_mqtt
             }
             else
             {
-                Chat obj = new Chat("hai inviato:", img);
+                Chat obj = new Chat("Hai inviato:", img);
                 objectListView1.AddObject(obj);
+                objectListView1.RowHeight = img.Height;
+
 
             }
         }
@@ -198,19 +200,6 @@ namespace Chat_mqtt
                      }
                  }
 
-                //set image
-                /*ImageList Imagelist = new ImageList();
-                Imagelist.Images.Add(Image.FromFile(path));
-                Imagelist.ImageSize = new Size(128, 128);
-                Imagelist.ColorDepth = ColorDepth.Depth32Bit;
-
-               
-                listView1.LargeImageList = Imagelist;
-                listView1.SmallImageList = Imagelist;
-                Random rnd = new Random();
-                int month = rnd.Next(1, 13);
-                listView1.Items.Add(new ListViewItem { ImageIndex = 0, Text = "Image "+month });
-                listView1.Items[listView1.Items.Count - 1].EnsureVisible();*/
             }
 
         }
