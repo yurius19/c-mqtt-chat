@@ -13,6 +13,7 @@ using System.Windows.Forms;
 //M2Mqtt Library
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
+using BrightIdeasSoftware;
 
 namespace Chat_mqtt
 {
@@ -29,26 +30,19 @@ namespace Chat_mqtt
         public Form1()
         {
             InitializeComponent();
+            objectListView1.ShowGroups = false;
+            this.objectListView1.SetObjects(Chat.get());
             string BrokerAddress = "127.0.0.1";
 
             client = new MqttClient(BrokerAddress);
 
             client.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
-            //RichTextBox1.BackColor = System.Drawing.SystemColors.Window;
             Bdisconnect.Enabled = false;
 
-            listView1.View = View.Details;
-            listView1.GridLines = true;
-            listView1.FullRowSelect = true;
-            listView2.View = View.Details;
-            listView2.GridLines = true;
-            listView2.FullRowSelect = true;
+            //objectListView1.View = View.Details;
+            
 
-            //Add column header
-            listView1.Columns.Add("Chat", -2, HorizontalAlignment.Left);
-            listView2.Columns.Add("Immagini", -2, HorizontalAlignment.Left);
-            //ImageList Imagelist = new ImageList();
- 
+
 
         }
 
@@ -72,11 +66,6 @@ namespace Chat_mqtt
                     SetImage(image);
                 }
 
-                /*Char delimiter = '*';
-                String[] substrings = msg.Split(delimiter);
-                foreach (var substring in substrings)
-                    Console.WriteLine(substring);*/
-
             }
             catch (InvalidCastException ex)
             {
@@ -86,32 +75,15 @@ namespace Chat_mqtt
         private void SetImage(Image img)
         {
             int i = 0;
-            if (this.listView2.InvokeRequired)
+            if (this.objectListView1.InvokeRequired)
             {
                 SetImageCallback d = new SetImageCallback(SetImage);
                 this.Invoke(d, img);
             }
             else
             {
-               
-                ImageList Imagelist = new ImageList();
-                Imagelist.Images.Add(img);
-                Imagelist.ImageSize = new Size(96, 96);
-                Imagelist.ColorDepth = ColorDepth.Depth32Bit;
-                listView2.LargeImageList = Imagelist;
-                listView2.SmallImageList = Imagelist;
-                //Random rnd = new Random();
-                // int month = rnd.Next(1, 13);
-                //listView1.Items.Add(new ListViewItem { ImageIndex = 0, Text = "Image " + month });
-                ListViewItem item = new ListViewItem();
-                item.ImageIndex = i;
-                listView2.Items.Add(item);
-                listView2.Items[listView2.Items.Count - 1].EnsureVisible();
-                i++;
-                //dataGridView1.Rows.Add();
-                //dataGridView1.Rows[index].Cells[1].Value = img;
-                //aggiungere anche chi l'ha mandata?
-                //index++;
+                Chat obj = new Chat("hai inviato:", img);
+                objectListView1.AddObject(obj);
 
             }
         }
@@ -119,23 +91,15 @@ namespace Chat_mqtt
 
         private void SetText(string text)
         {
-            if (this.listView1.InvokeRequired)
+            if (this.objectListView1.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                ListViewItem itm;
-                //string[] arr = new string[2];
-                //arr[0] = text;
-                //arr[1] = "Nessuna Immagine";
-                itm = new ListViewItem(text);               
-                ListViewItem itmprova = new ListViewItem(text);
-                listView1.Items.Add(itmprova);
-                listView1.Items[listView1.Items.Count - 1].EnsureVisible();
-                //dataGridView1.Rows.Add();
-                //dataGridView1.Rows[index].Cells[0].Value = text;
+                Chat obj = new Chat(text, null);
+                objectListView1.AddObject(obj);
             }
         }
 
@@ -171,21 +135,20 @@ namespace Chat_mqtt
                 {
                     Tnickname.ReadOnly = true;
                     Ttopic.ReadOnly = true;
-                    ListViewItem itm;
-                    itm = new ListViewItem("* Client connected\n");
-                    listView1.Items.Add(itm);
+                    Chat obj = new Chat("Connected \n", img);
+                    objectListView1.AddObject(obj);
                     //dataGridView1.Rows.Add();
                     //dataGridView1.Rows[index].Cells[0].Value = "* Client connected";
                     index++;
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                    itm = new ListViewItem(" * *Subscribing to: " + Ttopic.Text+"\n");
-                    listView1.Items.Add(itm);
+                    Chat obj1 = new Chat("Subscribing to: " + Ttopic.Text + "\n",null);
+                    objectListView1.AddObject(obj1);
                     //dataGridView1.Rows.Add();
                     ///dataGridView1.Rows[index].Cells[0].Value = " * *Subscribing to: " + Ttopic.Text;
                     //index++;
                     Bconnect.Enabled = false;
                     Bdisconnect.Enabled = true;
-                    listView1.Items[listView1.Items.Count - 1].EnsureVisible();
+                    //listView1.Items[listView1.Items.Count - 1].EnsureVisible();
                 }
                 else
                 {
@@ -201,7 +164,8 @@ namespace Chat_mqtt
         private void Bdisconnect_Click(object sender, EventArgs e)
         {
             client.Disconnect();
-            ListViewItem itm = new ListViewItem(" * Client disconnected\n");
+            Chat obj1 = new Chat("Disconnected\nn", null);
+            objectListView1.AddObject(obj1);
             //dataGridView1.Rows.Add();
             //dataGridView1.Rows[index].Cells[0].Value = " * Client disconnected";
             //index++;
@@ -209,7 +173,7 @@ namespace Chat_mqtt
             Ttopic.ReadOnly = false;
             Bconnect.Enabled = true;
             Bdisconnect.Enabled = false;
-            listView1.Items[listView1.Items.Count - 1].EnsureVisible();
+            //listView1.Items[listView1.Items.Count - 1].EnsureVisible();
 
         }
 
@@ -266,6 +230,16 @@ namespace Chat_mqtt
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void objectListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
