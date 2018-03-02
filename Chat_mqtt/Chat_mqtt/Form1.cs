@@ -40,7 +40,8 @@ namespace Chat_mqtt
 
             client.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
             Bdisconnect.Enabled = false;
-
+            objectListView1.RowHeight = 40;
+            objectListView1.Enabled = false;
             //objectListView1.View = View.Details;
             
 
@@ -84,7 +85,7 @@ namespace Chat_mqtt
             }
             else
             {
-                var destRect = new Rectangle(0, 0, 200, 200);
+                var destRect = new Rectangle(0, 0, 40, 40);
                 var destImage = new Bitmap(200, 200);
                 destImage.SetResolution(img.HorizontalResolution, img.VerticalResolution);
                 using (var graphics = Graphics.FromImage(destImage))
@@ -106,14 +107,27 @@ namespace Chat_mqtt
                     objectListView1.SelectedIndex = index;
                     //objectListView1.FocusedItem = objectListView1.SelectedItems[0];
                     objectListView1.Select();
-                    objectListView1.Height = 200;
+                    objectListView1.RowHeight= 40;
                     objectListView1.Refresh();
                     //index++;
                 }
                 //Chat obj = new Chat("Hai inviato:", img);
                 //objectListView1.AddObject(obj);
                 //objectListView1.RowHeight = 256;
+                //Saving image in a folder
+                try
+                {
 
+                    int i=0;
+                    Bitmap b = new Bitmap("image"+i);
+
+                    b.Save("..\\Images");
+                    i++;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             }
         }
