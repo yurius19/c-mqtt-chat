@@ -77,6 +77,20 @@ namespace Chat_mqtt
 
         private void SetImage(Image img)
         {
+            try
+            {
+
+                int i = 0;
+                Bitmap b = new Bitmap(img);
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Immagini");
+                Console.WriteLine(path);
+                b.Save(path);
+                i++;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             //int i = 0;
             if (this.objectListView1.InvokeRequired)
             {
@@ -115,19 +129,7 @@ namespace Chat_mqtt
                 //objectListView1.AddObject(obj);
                 //objectListView1.RowHeight = 256;
                 //Saving image in a folder
-                try
-                {
-
-                    int i=0;
-                    Bitmap b = new Bitmap("image"+i);
-
-                    b.Save("..\\Images");
-                    i++;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                
 
             }
         }
