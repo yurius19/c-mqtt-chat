@@ -27,7 +27,7 @@ namespace Chat_mqtt
         delegate void SetImageCallback(Image img);
         string base64String;
         Image img;
-        int index=1;
+        int index=1,i=0;
 
         public Form1()
         {
@@ -77,21 +77,9 @@ namespace Chat_mqtt
 
         private void SetImage(Image img)
         {
-            try
-            {
-
-                int i = 0;
-                Bitmap b = new Bitmap(img);
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Immagini");
-                Console.WriteLine(path);
-                b.Save(path);
-                i++;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            //int i = 0;
+            
+           
+           
             if (this.objectListView1.InvokeRequired)
             {
                 SetImageCallback d = new SetImageCallback(SetImage);
@@ -129,9 +117,25 @@ namespace Chat_mqtt
                 //objectListView1.AddObject(obj);
                 //objectListView1.RowHeight = 256;
                 //Saving image in a folder
-                
+                try
+                {
+                    Bitmap b = new Bitmap(img);
+                    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Immagini\");
+                    String percorso = path + "Image" + i + ".jpg";
+                    b.Save(percorso, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    i++;
+                    Console.WriteLine("immagine scritta");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
 
             }
+            
         }
 
 
