@@ -13,6 +13,9 @@ using System.Windows.Forms;
 //M2Mqtt Library
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
+using BrightIdeasSoftware;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace Chat_mqtt
 {
@@ -21,65 +24,113 @@ namespace Chat_mqtt
         MqttClient client;
         string clientId;
         delegate void SetTextCallback(string text);
-        String nick;
-        //System.DateTime moment = new System.DateTime(); inutile?
+        delegate void SetImageCallback(Image img);
+        string base64String;
         Image img;
-        int flagTxtOrImage = 0;
+        int index=1;
 
         public Form1()
         {
             InitializeComponent();
-            string BrokerAddress = "test.mosquitto.org";
+            objectListView1.ShowGroups = false;
+            this.objectListView1.SetObjects(Chat.get());
+            string BrokerAddress = "127.0.0.1";
 
             client = new MqttClient(BrokerAddress);
 
             client.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
-            //RichTextBox1.BackColor = System.Drawing.SystemColors.Window;
             Bdisconnect.Enabled = false;
 
-            listView1.View = View.Details;
-            //listView1.GridLines = true;
-            //listView1.FullRowSelect = true;
+            //objectListView1.View = View.Details;
+            
 
-            //Add column header
-            listView1.Columns.Add("Chat", listView1.Width);
 
 
         }
 
         private void EventPublished(Object sender, uPLibrary.Networking.M2Mqtt.Messages.MqttMsgPublishEventArgs e)
         {
+            Image image;
             try
             {
-                    String msg = System.Text.UTF8Encoding.UTF8.GetString(e.Message);
-                    
-                    Char delimiter = '*';
-                    String[] substrings = msg.Split(delimiter);
-                    foreach (var substring in substrings)
-                        Console.WriteLine(substring);
-                    SetText("[" + substrings[0] + "]" + substrings[1] + ": " + substrings[2]);
-               
-                
+                String msg = System.Text.UTF8Encoding.UTF8.GetString(e.Message);
+                if (msg.StartsWith("[")){
+                    SetText(msg);
+                }
+                else
+                {
+                    Console.WriteLine(msg);
+                    byte[] imageBytes = Convert.FromBase64String(msg);
+                    using (var ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+                    {
+                        image = Image.FromStream(ms, true);
+                    }
+                    SetImage(image);
+                }
+
             }
             catch (InvalidCastException ex)
             {
             }
         }
 
+        private void SetImage(Image img)
+        {
+            //int i = 0;
+            if (this.objectListView1.InvokeRequired)
+            {
+                SetImageCallback d = new SetImageCallback(SetImage);
+                this.Invoke(d, img);
+            }
+            else
+            {
+                var destRect = new Rectangle(0, 0, 200, 200);
+                var destImage = new Bitmap(200, 200);
+                destImage.SetResolution(img.HorizontalResolution, img.VerticalResolution);
+                using (var graphics = Graphics.FromImage(destImage))
+                {
+                    graphics.CompositingMode = CompositingMode.SourceCopy;
+                    graphics.CompositingQuality = CompositingQuality.HighQuality;
+                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    graphics.SmoothingMode = SmoothingMode.HighQuality;
+                    graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                    using (var wrapMode = new ImageAttributes())
+                    {
+                        wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                        graphics.DrawImage(img, destRect, 0, 0, img.Width, img.Height, GraphicsUnit.Pixel, wrapMode);
+                    }
+
+                    Chat obj = new Chat("Hai inviato:", destImage);
+                    objectListView1.AddObject(obj);
+                    objectListView1.SelectedIndex = index;
+                    //objectListView1.FocusedItem = objectListView1.SelectedItems[0];
+                    objectListView1.Select();
+                    objectListView1.Height = 200;
+                    objectListView1.Refresh();
+                    //index++;
+                }
+                //Chat obj = new Chat("Hai inviato:", img);
+                //objectListView1.AddObject(obj);
+                //objectListView1.RowHeight = 256;
+
+
+            }
+        }
+
+
         private void SetText(string text)
         {
-            if (this.listView1.InvokeRequired)
+            if (this.objectListView1.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
-                ListViewItem itm;
-                itm = new ListViewItem(text);
-                listView1.Items.Add(itm);
-                listView1.Items[listView1.Items.Count - 1].EnsureVisible();
-                //this.listChat.Items.Add(text);
+                Chat obj = new Chat(text, null);
+                objectListView1.AddObject(obj);
+                index++;
             }
         }
 
@@ -90,8 +141,9 @@ namespace Chat_mqtt
             String ora;
             try
             {
-                ora = DateTime.Now.ToString("h:mm:ss");
-                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(ora+'*'+Tnickname.Text+'*'+Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                ora = DateTime.Now.ToString("h:mm:ss");    
+                client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes("[" + ora + "]" + Tnickname.Text + ": " + Tmessage.Text), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                
                 //listChat.Items.Add("*** Publishing on: " + Ttopic.Text);
                 Tmessage.Clear();
                 
@@ -114,15 +166,22 @@ namespace Chat_mqtt
                 {
                     Tnickname.ReadOnly = true;
                     Ttopic.ReadOnly = true;
-                    ListViewItem itm;
-                    itm = new ListViewItem("* Client connected\n");
-                    listView1.Items.Add(itm);
+                    Chat obj = new Chat("Connected \n", img);
+                    objectListView1.AddObject(obj);
+                    index++;
+                    //dataGridView1.Rows.Add();
+                    //dataGridView1.Rows[index].Cells[0].Value = "* Client connected";
+                    index++;
                     client.Subscribe(new string[] { Ttopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                    itm = new ListViewItem(" * *Subscribing to: " + Ttopic.Text+"\n");
-                    listView1.Items.Add(itm);
+                    Chat obj1 = new Chat("Subscribing to: " + Ttopic.Text + "\n",null);
+                    objectListView1.AddObject(obj1);
+                    index++;
+                    //dataGridView1.Rows.Add();
+                    ///dataGridView1.Rows[index].Cells[0].Value = " * *Subscribing to: " + Ttopic.Text;
+                    //index++;
                     Bconnect.Enabled = false;
                     Bdisconnect.Enabled = true;
-                    listView1.Items[listView1.Items.Count - 1].EnsureVisible();
+                    //listView1.Items[listView1.Items.Count - 1].EnsureVisible();
                 }
                 else
                 {
@@ -138,24 +197,28 @@ namespace Chat_mqtt
         private void Bdisconnect_Click(object sender, EventArgs e)
         {
             client.Disconnect();
-            ListViewItem itm = new ListViewItem(" * Client disconnected\n");
-            listView1.Items.Add(itm);
+            Chat obj1 = new Chat("Disconnected\nn", null);
+            objectListView1.AddObject(obj1);
+            index++;
+            //dataGridView1.Rows.Add();
+            //dataGridView1.Rows[index].Cells[0].Value = " * Client disconnected";
+            //index++;
             Tnickname.ReadOnly = false;
             Ttopic.ReadOnly = false;
             Bconnect.Enabled = true;
             Bdisconnect.Enabled = false;
-            listView1.Items[listView1.Items.Count - 1].EnsureVisible();
+            //listView1.Items[listView1.Items.Count - 1].EnsureVisible();
 
         }
 
         private void b_allega_Click(object sender, EventArgs e)
         {
-            string path, base64String;
+            string path;
             OpenFileDialog file = new OpenFileDialog();
             if (file.ShowDialog() == DialogResult.OK)
             {
                 path = file.FileName;
-                /* using (Image image = Image.FromFile(path))
+                using (Image image = Image.FromFile(path))
                  {
                      using (MemoryStream m = new MemoryStream())
                      {
@@ -165,52 +228,42 @@ namespace Chat_mqtt
                          // Convert byte[] to Base64 String
                          base64String = Convert.ToBase64String(imageBytes);
                          Console.WriteLine(base64String);
-                         //client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(base64String), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                         client.Publish(Ttopic.Text, Encoding.UTF8.GetBytes(base64String), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                      }
-                 }*/
-                ImageList Imagelist = new ImageList();
-                Imagelist.Images.Add(Image.FromFile(path));
-                Imagelist.ImageSize = new Size(128, 128);
-                Imagelist.ColorDepth = ColorDepth.Depth32Bit;
+                 }
 
-               
-                listView1.LargeImageList = Imagelist;
-                listView1.SmallImageList = Imagelist;
-                Random rnd = new Random();
-                int month = rnd.Next(1, 13);
-                listView1.Items.Add(new ListViewItem { ImageIndex = 0, Text = "Image "+month });
-                listView1.Items[listView1.Items.Count - 1].EnsureVisible();
-                /*Clipboard.SetDataObject(image);
-                //Clipboard.SetImage(image);
-                RichTextBox1.AppendText(path+"\n");
-                DataFormats.Format dataFormat = DataFormats.GetFormat(DataFormats.Bitmap);
-                if (RichTextBox1.CanPaste(dataFormat))
-                {
-                    
-                    RichTextBox1.Paste(dataFormat);
-                    RichTextBox1.AppendText("prova immagine\n");
-                    
-                }
-                else
-                    RichTextBox1.AppendText("niente da fare\n");*/
-                //RichTextBox1.Paste();
-                //RichTextBox1.AppendText("\n");
-                //listView.Items.Add(path);
-                //this.img = Image.FromFile(path);
-                //byte[] img= Convertitore(this.img);
-                //RichTextBox1.(img);
             }
 
         }
-        /*private byte[] Convertitore(System.Drawing.Image imageIn)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            using (var ms = new MemoryStream())
-            {
-                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                return ms.ToArray();
-            }
-        }*/
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void objectListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
