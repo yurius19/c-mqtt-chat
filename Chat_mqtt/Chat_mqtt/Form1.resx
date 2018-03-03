@@ -117,7 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Bpublish.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAEvSURBVFhH7dS9SsNQGIfxWLGtk7Y62MEPRFylLYjgFYi7
+        19C1OApu6iZ4AXbSUbqVbnUSOlmcFYogftxEff7HSNOQYnLSDsJ54AeelyR9qRrP5XK5IhpM2Z/pojec
+        YEaDlGVwCj0z9gIl3KOFJdi2jDY6WEHsBdQsztHHngYJ28crzqBnqUQL/HaID9TNKV7HeMeBOQ2zWkCt
+        o4s7LGgwpkU08YBVDUJZL6CyuMIzyhqEquAFl5jTIKJUC6hdfPlqGvjp509fVYMxpVpgE4/YwTaecINb
+        9LAFfTO6ZgNRWS+gf0X9btfM6ad5NHCNvAZ++nvRtUVzGs1qAT38AgVzipc+XPcEF1OJF9Cb8Ag5c0qW
+        Plz3Bt+mVt9Amtdx+F6rBSbZ/1lgmlwulyuQ530D3NRuOfHPWpEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="b_allega.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAJgSURBVGhD7Zk5axVRGIYPGkWEWNmJjeDSxSXuC6QQKwP+
+        BH+AqLghKOJuYbRQsLFI4opiY2drkyYWoohYWrnEXRQVl+f9jh9ejnPxWs13wzzwQN5zpzjvzNzJnHNT
+        Q0NDw6RhOu7BB/gN3+Md3IjhmYVj+LONRzE0w6iJfsIDuBwH8Bp6iS0Ykrn4HTXJzRoouID67J6lgGxF
+        TfChpb9RQb8KszUQjYOoyd20VM071DHLLAXjMGpyut/b8Qp1zEpLwfACVy1VE7rAEey0wApL+XuxE3st
+        1UxVgUFcnP80XmNrgYuovN1SzZQFFqHyU0uZssAVVN5nqWa8gCYl9E9MWbeN4wX0mQhVQK8J/yrwBsMX
+        uGwp3ybKE5YyXqDfUpcUeGkp8xarCuy1VDNlAT3rlV9YypQF9IXvygL+KhGywCVLKa3CskD5LhSqwDHU
+        ZEYt/V8BreBq5zhqMiOWUlqNys8tZbS81NhSS38WOiEKnMCqAs8sZbqqwBpsV2CJpS4s8AHDF9DCXqzF
+        TgvstlQzJ7HTAv6KfR3DFliHZYGPGLbAKWwtUHUFvECfpeBXQI9KZd02U3AG+r7RAhReYJelmjmEmswN
+        SynNRO3QaUxn2Bf9eh/qQXEbNbbNUs34xtZ9S5kzqLFW9c7kPEaNhdhu9DXwD5ynAZiG5/Ez6mqcRT/7
+        C9FLzdFABMZREyp356b+tpVbqGPvWgrCJvSzOoTlpIXGTqMfp93rUPjTSD7CHbgB16P2f7T565/r2JBo
+        kf4FfaKlX3E/hkZfZD2FdBU0Yf3c9ATP4XxsaGhomDSk9AtFwgfT1wV9HQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="Testo.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
 </root>

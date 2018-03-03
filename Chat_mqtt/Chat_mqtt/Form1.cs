@@ -280,6 +280,11 @@ namespace Chat_mqtt
 
         }
 
+        private void Tmessage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void objectListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

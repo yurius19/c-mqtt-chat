@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            BrightIdeasSoftware.OLVColumn Testo;
             this.Bpublish = new System.Windows.Forms.Button();
-            this.Lmessage = new System.Windows.Forms.Label();
             this.Tmessage = new System.Windows.Forms.TextBox();
             this.Lnickname = new System.Windows.Forms.Label();
             this.Tnickname = new System.Windows.Forms.TextBox();
@@ -37,65 +38,63 @@
             this.Ltopic = new System.Windows.Forms.Label();
             this.Ttopic = new System.Windows.Forms.TextBox();
             this.Bdisconnect = new System.Windows.Forms.Button();
-            this.Lchat = new System.Windows.Forms.Label();
             this.LErrorNickname = new System.Windows.Forms.Label();
             this.b_allega = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.Testo = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.Immagini = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.Images = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.objectListView1 = new BrightIdeasSoftware.ObjectListView();
+            this.label1 = new System.Windows.Forms.Label();
+            Testo = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Bpublish
             // 
-            this.Bpublish.Location = new System.Drawing.Point(1244, 560);
+            this.Bpublish.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bpublish.BackgroundImage")));
+            this.Bpublish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Bpublish.ForeColor = System.Drawing.Color.Bisque;
+            this.Bpublish.Location = new System.Drawing.Point(1487, 608);
             this.Bpublish.Name = "Bpublish";
-            this.Bpublish.Size = new System.Drawing.Size(100, 35);
+            this.Bpublish.Size = new System.Drawing.Size(102, 48);
             this.Bpublish.TabIndex = 1;
-            this.Bpublish.Text = "Invia";
             this.Bpublish.UseVisualStyleBackColor = true;
             this.Bpublish.Click += new System.EventHandler(this.Bpublish_Click);
             // 
-            // Lmessage
-            // 
-            this.Lmessage.AutoSize = true;
-            this.Lmessage.Location = new System.Drawing.Point(16, 537);
-            this.Lmessage.Name = "Lmessage";
-            this.Lmessage.Size = new System.Drawing.Size(116, 20);
-            this.Lmessage.TabIndex = 3;
-            this.Lmessage.Text = "Your message:";
-            // 
             // Tmessage
             // 
-            this.Tmessage.Location = new System.Drawing.Point(16, 560);
+            this.Tmessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tmessage.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.Tmessage.Location = new System.Drawing.Point(269, 608);
             this.Tmessage.Multiline = true;
             this.Tmessage.Name = "Tmessage";
-            this.Tmessage.Size = new System.Drawing.Size(1024, 35);
+            this.Tmessage.Size = new System.Drawing.Size(1103, 46);
             this.Tmessage.TabIndex = 4;
+            this.Tmessage.TextChanged += new System.EventHandler(this.Tmessage_TextChanged);
             // 
             // Lnickname
             // 
             this.Lnickname.AutoSize = true;
-            this.Lnickname.Location = new System.Drawing.Point(12, 9);
+            this.Lnickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lnickname.Location = new System.Drawing.Point(10, 24);
             this.Lnickname.Name = "Lnickname";
-            this.Lnickname.Size = new System.Drawing.Size(83, 20);
+            this.Lnickname.Size = new System.Drawing.Size(105, 25);
             this.Lnickname.TabIndex = 5;
             this.Lnickname.Text = "Nickname:";
             // 
             // Tnickname
             // 
-            this.Tnickname.Location = new System.Drawing.Point(100, 6);
+            this.Tnickname.Location = new System.Drawing.Point(121, 21);
             this.Tnickname.Multiline = true;
             this.Tnickname.Name = "Tnickname";
-            this.Tnickname.Size = new System.Drawing.Size(162, 29);
+            this.Tnickname.Size = new System.Drawing.Size(140, 29);
             this.Tnickname.TabIndex = 7;
             // 
             // Bconnect
             // 
-            this.Bconnect.Location = new System.Drawing.Point(14, 98);
+            this.Bconnect.ForeColor = System.Drawing.Color.Black;
+            this.Bconnect.Location = new System.Drawing.Point(10, 94);
             this.Bconnect.Name = "Bconnect";
-            this.Bconnect.Size = new System.Drawing.Size(82, 37);
+            this.Bconnect.Size = new System.Drawing.Size(122, 46);
             this.Bconnect.TabIndex = 6;
             this.Bconnect.Text = "Connect";
             this.Bconnect.UseVisualStyleBackColor = true;
@@ -104,41 +103,32 @@
             // Ltopic
             // 
             this.Ltopic.AutoSize = true;
-            this.Ltopic.Location = new System.Drawing.Point(12, 66);
+            this.Ltopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ltopic.Location = new System.Drawing.Point(13, 55);
             this.Ltopic.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Ltopic.Name = "Ltopic";
-            this.Ltopic.Size = new System.Drawing.Size(51, 20);
+            this.Ltopic.Size = new System.Drawing.Size(67, 25);
             this.Ltopic.TabIndex = 8;
             this.Ltopic.Text = "Topic:";
             // 
             // Ttopic
             // 
-            this.Ttopic.Location = new System.Drawing.Point(100, 62);
+            this.Ttopic.Location = new System.Drawing.Point(121, 58);
             this.Ttopic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Ttopic.Name = "Ttopic";
-            this.Ttopic.Size = new System.Drawing.Size(162, 26);
+            this.Ttopic.Size = new System.Drawing.Size(140, 26);
             this.Ttopic.TabIndex = 9;
             // 
             // Bdisconnect
             // 
-            this.Bdisconnect.Location = new System.Drawing.Point(102, 102);
+            this.Bdisconnect.Location = new System.Drawing.Point(139, 94);
             this.Bdisconnect.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Bdisconnect.Name = "Bdisconnect";
-            this.Bdisconnect.Size = new System.Drawing.Size(112, 35);
+            this.Bdisconnect.Size = new System.Drawing.Size(122, 46);
             this.Bdisconnect.TabIndex = 10;
             this.Bdisconnect.Text = "Quit";
             this.Bdisconnect.UseVisualStyleBackColor = true;
             this.Bdisconnect.Click += new System.EventHandler(this.Bdisconnect_Click);
-            // 
-            // Lchat
-            // 
-            this.Lchat.AutoSize = true;
-            this.Lchat.Location = new System.Drawing.Point(406, 6);
-            this.Lchat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Lchat.Name = "Lchat";
-            this.Lchat.Size = new System.Drawing.Size(47, 20);
-            this.Lchat.TabIndex = 11;
-            this.Lchat.Text = "Chat:";
             // 
             // LErrorNickname
             // 
@@ -150,11 +140,12 @@
             // 
             // b_allega
             // 
-            this.b_allega.Location = new System.Drawing.Point(1092, 560);
+            this.b_allega.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("b_allega.BackgroundImage")));
+            this.b_allega.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.b_allega.Location = new System.Drawing.Point(1378, 608);
             this.b_allega.Name = "b_allega";
-            this.b_allega.Size = new System.Drawing.Size(100, 35);
+            this.b_allega.Size = new System.Drawing.Size(103, 48);
             this.b_allega.TabIndex = 12;
-            this.b_allega.Text = "Allega";
             this.b_allega.UseVisualStyleBackColor = true;
             this.b_allega.Click += new System.EventHandler(this.b_allega_Click);
             // 
@@ -164,45 +155,60 @@
             // 
             // Testo
             // 
-            this.Testo.AspectName = "Text";
-            this.Testo.CellEditUseWholeCell = false;
-            this.Testo.Text = "Text";
-            this.Testo.Width = 557;
+            Testo.AspectName = "Text";
+            Testo.CellEditUseWholeCell = false;
+            Testo.Text = "Text";
+            Testo.Width = 800;
+            Testo.WordWrap = true;
             // 
-            // Immagini
+            // Images
             // 
-            this.Immagini.AspectName = "Image";
-            this.Immagini.ImageAspectName = "Image";
-            this.Immagini.Text = "Immagini";
-            this.Immagini.Width = 631;
+            this.Images.AspectName = "Image";
+            this.Images.ImageAspectName = "Image";
+            this.Images.Text = "Immagini";
+            this.Images.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Images.Width = 80;
+            this.Images.WordWrap = true;
             // 
             // objectListView1
             // 
-            this.objectListView1.AllColumns.Add(this.Testo);
-            this.objectListView1.AllColumns.Add(this.Immagini);
+            this.objectListView1.AllColumns.Add(Testo);
+            this.objectListView1.AllColumns.Add(this.Images);
+            this.objectListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.objectListView1.CellEditUseWholeCell = false;
             this.objectListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Testo,
-            this.Immagini});
+            Testo,
+            this.Images});
             this.objectListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.objectListView1.Location = new System.Drawing.Point(410, 48);
+            this.objectListView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.objectListView1.Location = new System.Drawing.Point(270, 24);
             this.objectListView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.objectListView1.Name = "objectListView1";
-            this.objectListView1.Size = new System.Drawing.Size(934, 453);
+            this.objectListView1.Size = new System.Drawing.Size(1321, 575);
             this.objectListView1.TabIndex = 14;
             this.objectListView1.UseCompatibleStateImageBehavior = false;
             this.objectListView1.View = System.Windows.Forms.View.Details;
             this.objectListView1.SelectedIndexChanged += new System.EventHandler(this.objectListView1_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(88, 615);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 29);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Your Message:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 663);
+            this.ClientSize = new System.Drawing.Size(1605, 704);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.objectListView1);
             this.Controls.Add(this.b_allega);
             this.Controls.Add(this.LErrorNickname);
-            this.Controls.Add(this.Lchat);
             this.Controls.Add(this.Bdisconnect);
             this.Controls.Add(this.Ttopic);
             this.Controls.Add(this.Ltopic);
@@ -210,7 +216,6 @@
             this.Controls.Add(this.Bconnect);
             this.Controls.Add(this.Lnickname);
             this.Controls.Add(this.Tmessage);
-            this.Controls.Add(this.Lmessage);
             this.Controls.Add(this.Bpublish);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
@@ -226,8 +231,6 @@
             e.Handled = true;
         }
         #endregion
-        private System.Windows.Forms.Button Bpublish;
-        private System.Windows.Forms.Label Lmessage;
         private System.Windows.Forms.TextBox Tmessage;
         private System.Windows.Forms.Label Lnickname;
         private System.Windows.Forms.TextBox Tnickname;
@@ -235,13 +238,13 @@
         private System.Windows.Forms.Label Ltopic;
         private System.Windows.Forms.TextBox Ttopic;
         private System.Windows.Forms.Button Bdisconnect;
-        private System.Windows.Forms.Label Lchat;
         private System.Windows.Forms.Label LErrorNickname;
         private System.Windows.Forms.Button b_allega;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private BrightIdeasSoftware.OLVColumn Testo;
-        private BrightIdeasSoftware.OLVColumn Immagini;
+        private BrightIdeasSoftware.OLVColumn Images;
         private BrightIdeasSoftware.ObjectListView objectListView1;
+        private System.Windows.Forms.Button Bpublish;
+        private System.Windows.Forms.Label label1;
     }
 }
 
