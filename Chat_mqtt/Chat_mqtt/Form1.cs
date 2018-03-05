@@ -35,15 +35,26 @@ namespace Chat_mqtt
             objectListView1.ShowGroups = false;
             this.objectListView1.SetObjects(Chat.get());
             string BrokerAddress = "127.0.0.1";
-
+            string percorso = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Immagini\");
             client = new MqttClient(BrokerAddress);
 
             client.MqttMsgPublishReceived += new MqttClient.MqttMsgPublishEventHandler(EventPublished);
             Bdisconnect.Enabled = false;
             objectListView1.RowHeight = 40;
-            objectListView1.Enabled = false;
+            objectListView1.Enabled = true;
             //objectListView1.View = View.Details;
-            
+            try
+            {
+                if (!Directory.Exists(percorso))
+                {
+                    Directory.CreateDirectory(percorso);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
 
 
 
@@ -124,7 +135,7 @@ namespace Chat_mqtt
                     String percorso = path + "Image" + i + ".jpg";
                     b.Save(percorso, System.Drawing.Imaging.ImageFormat.Jpeg);
                     i++;
-                    Console.WriteLine("immagine scritta");
+                    Console.WriteLine("immagine scritta"+path);
 
                 }
                 catch (Exception ex)

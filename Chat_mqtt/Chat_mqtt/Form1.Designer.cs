@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             BrightIdeasSoftware.OLVColumn Testo;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Bpublish = new System.Windows.Forms.Button();
             this.Tmessage = new System.Windows.Forms.TextBox();
             this.Lnickname = new System.Windows.Forms.Label();
@@ -47,6 +47,14 @@
             Testo = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.objectListView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Testo
+            // 
+            Testo.AspectName = "Text";
+            Testo.CellEditUseWholeCell = false;
+            Testo.Text = "Text";
+            Testo.Width = 800;
+            Testo.WordWrap = true;
             // 
             // Bpublish
             // 
@@ -152,14 +160,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // Testo
-            // 
-            Testo.AspectName = "Text";
-            Testo.CellEditUseWholeCell = false;
-            Testo.Text = "Text";
-            Testo.Width = 800;
-            Testo.WordWrap = true;
             // 
             // Images
             // 
